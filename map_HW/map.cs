@@ -84,6 +84,52 @@ namespace map_HW
             }
 
             return sb.ToString();
+            //return key.ToString() + value.ToString();
+        }
+
+        public V GetValueByKey(K key)
+        {
+            for(int i = 0; i < size; i++)
+            {
+                if (this.key[i].Equals(key))
+                {
+                    return value[i];
+                }
+            }
+            throw new KeyNotFoundException("По вашему ключу ничего не найдено");
+        }
+
+        public K GetKeyByValue(V value)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                if (this.value[i].Equals(value))
+                {
+                    return key[i];
+                }
+            }
+            throw new Exception("По вашему значению ключ не найден");
+        }
+
+        public bool Remove(K key)
+        {
+            for(int i = 0; i < size; i++)
+            {
+                if (this.key[i].Equals(key))
+                {
+                    this.key[i] = default(K);
+                    this.value[i] = default(V);
+                    for(int j = i; j < size ; j++)
+                    {
+                        this.key[j] = this.key[j + 1];
+                        this.value[j - 1] = this.value[j + 1];
+                    }
+                    this.key[size] = default(K);
+                    this.value[size] = default (V);
+                    return true;
+                } 
+            }
+            return false;
         }
 
         //IEnumerable
