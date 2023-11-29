@@ -19,8 +19,11 @@ namespace map_HW
             myMap.Add(4, "qwe");
             myMap.Add(12, "qwe");
             Console.WriteLine(myMap);
+            myMap.Remove(6);
 
-            foreach(var i in myMap)
+            Console.WriteLine(myMap);
+
+            foreach (var i in myMap)
             {
                 Console.WriteLine(i);
             }
@@ -30,8 +33,10 @@ namespace map_HW
             asdf.Add(2, 2);
             asdf.Add(4, 2);
             asdf.Add(3, 2);
-            Console.WriteLine(asdf);
-
+            Console.WriteLine(asdf.Values);
+            //asdf.Remove
+            //Console.WriteLine(myMap.GetValueByKey(55));
+            Console.WriteLine(myMap.GetKeyByValue("qwe"));
         }
     }
 }
